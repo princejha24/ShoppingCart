@@ -9,12 +9,14 @@ const Product = ({product}) => {
 
  const addToCart=()=>{
     dispatch(add(product));
+    
     toast.success("Item added to cart");
  };
 
  const removeFromCart=()=>{
     dispatch(remove(product.id));
-    toast.error("Item removed from cart");
+    if(cart.find((p)=>p.id===product.id)){
+    toast.error("Item removed from cart");}
  }
  
 
@@ -38,14 +40,16 @@ const Product = ({product}) => {
          <div>
         <p className="text-green-600">${product.price}</p>
       </div>
-       <div>
-        {
-          cart.some((p)=>p.id===product.id) ? (
-            <button className="text-gray-700 border-2 border-gray-700 rounded-full font-semibold text-[12px] p-1 px-3 uppercase hover:bg-gray-700 hover:text-slate-100 transition duration-300 ease-in  " onClick={removeFromCart}>Remove Item</button>
-          ) : (
-            <button className="text-gray-700 border-2 border-gray-700 rounded-full font-semibold text-[12px] p-1 px-3 uppercase hover:bg-gray-700 hover:text-slate-100 transition duration-300 ease-in " onClick={addToCart}>Add to Cart</button>
-          )
-        }
+       <div className="flex items-center justify-between  gap-2 h-9 w-[120px] rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
+
+
+            <button className="text-white flex justify-center  items-center rounded-lg w-4 h-4 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5  " onClick={removeFromCart}>-</button>
+
+            <p className="font-semibold w-8 h-8 flex items-center justify-center text-white tabular-nums ">{cart.find((p)=>p.id===product.id)?.quantity || 0}</p>
+           
+            <button className="text-white flex justify-center  items-center rounded-lg w-4 h-4 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5 e-in " onClick={addToCart}>+</button>
+          
+        
        </div>
       </div>
       
