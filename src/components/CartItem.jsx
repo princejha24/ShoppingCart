@@ -39,15 +39,21 @@ const CartItem = ({item, itemIndex}) => {
             <div className="flex  gap-2 justify-between">
               <p className="text-green-600 font-bold text-lg" >${item.price}</p>
             
-                  <div className="flex items-center gap-1  mt-1 border-2 border-gray-700 rounded-full p-2 h-10 w-[120px] bg-red-500">
+                 
         
-            <button className="text-gray-700 border-2 bg-white border-gray-700 rounded-full font-semibold text-[12px] p-1 px-3 uppercase hover:bg-gray-700 hover:text-slate-100 transition duration-300 ease-in  w-[40px] text-bold" onClick={decrementItem}>-</button>
+    <div className="flex items-center justify-between  gap-2 h-9 w-[120px] rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
 
-            <p className="text-white font-bold w-[15px] mr-1">{item.quantity}</p>
+
+            <button className="text-white flex justify-center  items-center rounded-lg w-4 h-4 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5  " onClick={decrementItem}>-</button>
+
+            <p className="font-semibold w-8 h-8 flex items-center justify-center text-white tabular-nums ">{item.quantity}</p>
            
-            <button className="text-gray-700 border-2 bg-white border-gray-700 rounded-full font-semibold text-[12px] p-1 px-3 uppercase hover:bg-gray-700 hover:text-slate-100 transition duration-300 ease-in text-bold w-[40px]" onClick={incrementItem}>+</button>
-              
-              </div>
+            <button className="text-white flex justify-center  items-center rounded-lg w-4 h-4 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5 e-in " onClick={incrementItem}>+</button>
+          
+        
+       </div>
+
+
                 </div>
         <div className="w-10 h-10 mt-[-10px] rounded-full bg-red-200 flex justify-center items-center
              hover:bg-red-400 group transition-all">
